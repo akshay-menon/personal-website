@@ -1,6 +1,27 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    await fetch("https://formspree.io/f/mojjqajo", {
+      method: "POST",
+      body: new FormData(form),
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    setSubmitted(true);
+    form.reset();
+  };
+
   return (
     <div className="h-screen overflow-y-auto snap-y snap-mandatory">
       {/* Container for content + sticky photo */}
@@ -105,12 +126,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 3: Life + Connect */}
+        {/* Section 3: Life + Side Projects */}
         <section className="h-screen snap-start flex items-center px-6">
           <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               {/* Life */}
-              <div className="mb-10">
+              <div className="mb-8">
                 <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
                   Life
                 </h2>
@@ -122,62 +143,111 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Links */}
+              {/* Side Projects */}
               <div>
                 <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
-                  Connect
+                  Side Projects
                 </h2>
-                <div className="flex flex-wrap gap-4 text-sm">
-                  <a
-                    href="https://x.com/menon_akshays"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-accent transition-colors"
-                  >
-                    X
-                  </a>
-                  <a
-                    href="https://github.com/akshay-menon/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-accent transition-colors"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/akshay-s-menon/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-accent transition-colors"
-                  >
-                    LinkedIn
-                  </a>
-                  <a
-                    href="https://substack.com/@amenon"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-accent transition-colors"
-                  >
-                    Substack
-                  </a>
-                  <a
-                    href="https://www.instagram.com/wabisabicomics/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-accent transition-colors"
-                  >
-                    Instagram
-                  </a>
-                  <a
-                    href="https://www.goodreads.com/user/show/8458998-akshay"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/60 hover:text-accent transition-colors"
-                  >
-                    Goodreads
-                  </a>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <a href="https://melonfarms.xyz" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Melon Farms</a>
+                    <span className="text-foreground/60"> — recipe generator app built with vibe coding</span>
+                  </div>
+                  <div>
+                    <a href="https://substack.com/@amenon" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Perfect Days</a>
+                    <span className="text-foreground/60"> — fiction & travel writing on Substack</span>
+                  </div>
+                  <div>
+                    <a href="https://www.instagram.com/wabisabicomics/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Wabi Sabi Comics</a>
+                    <span className="text-foreground/60"> — illustrations on Instagram</span>
+                  </div>
                 </div>
               </div>
+            </div>
+            {/* Spacer for photo on desktop */}
+            <div className="hidden md:block w-[300px] flex-shrink-0" />
+          </div>
+        </section>
+
+        {/* Section 4: Connect */}
+        <section className="h-screen snap-start flex items-center px-6">
+          <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+            <div className="flex-1 max-w-xl">
+              <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
+                Connect
+              </h2>
+              <div className="flex flex-wrap gap-4 text-sm mb-8">
+                <a
+                  href="https://x.com/menon_akshays"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 hover:text-accent transition-colors"
+                >
+                  X
+                </a>
+                <a
+                  href="https://github.com/akshay-menon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 hover:text-accent transition-colors"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/akshay-s-menon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 hover:text-accent transition-colors"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://www.goodreads.com/user/show/8458998-akshay"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground/60 hover:text-accent transition-colors"
+                >
+                  Goodreads
+                </a>
+              </div>
+
+              {submitted ? (
+                <div className="p-4 rounded-lg border border-accent/50 bg-accent/10">
+                  <p className="text-foreground text-sm">Thanks for reaching out! I&apos;ll get back to you soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="flex gap-4">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Name"
+                      required
+                      className="flex-1 px-3 py-2 text-sm rounded-lg border border-foreground/20 bg-background text-foreground focus:outline-none focus:border-accent transition-colors"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      required
+                      className="flex-1 px-3 py-2 text-sm rounded-lg border border-foreground/20 bg-background text-foreground focus:outline-none focus:border-accent transition-colors"
+                    />
+                  </div>
+                  <textarea
+                    name="message"
+                    placeholder="Message"
+                    rows={3}
+                    required
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-foreground/20 bg-background text-foreground focus:outline-none focus:border-accent transition-colors resize-none"
+                  />
+                  <button
+                    type="submit"
+                    className="px-4 py-2 text-sm rounded-lg bg-accent text-white font-medium hover:bg-accent/90 transition-colors"
+                  >
+                    Send
+                  </button>
+                </form>
+              )}
             </div>
             {/* Spacer for photo on desktop */}
             <div className="hidden md:block w-[300px] flex-shrink-0" />

@@ -16,9 +16,6 @@ export function Nav() {
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/archive", label: "Archive" },
-    { href: "/about", label: "About" },
   ];
 
   return (
