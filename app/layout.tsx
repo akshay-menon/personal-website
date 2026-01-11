@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, VT323 } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./components/ThemeProvider";
+import { Nav } from "./components/Nav";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const vt323 = VT323({
+  variable: "--font-vt323",
+  weight: "400",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Akshay Menon",
-  description: "Designer and developer based in San Francisco",
+  description: "Product Manager based in London",
 };
 
 export default function RootLayout({
@@ -23,11 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${vt323.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          <Nav />
+          <main className="pt-16">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
