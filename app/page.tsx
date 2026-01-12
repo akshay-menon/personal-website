@@ -176,16 +176,16 @@ export default function Home() {
         </div>
 
         {/* Section 1: Intro + About */}
-        <section id="about" className="h-screen snap-start flex items-start pt-16 md:pt-0 md:items-center px-8 md:px-6">
+        <section id="about" className="h-screen snap-start flex items-start pt-8 md:pt-0 md:items-center px-8 md:px-6">
           <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               {/* Mobile Photo */}
-              <div className="md:hidden mb-8">
+              <div className="md:hidden mb-4">
                 <Image
                   src="/Akshay.jpg"
                   alt="Akshay Menon"
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                   className="rounded-lg object-cover sepia-[0.1] brightness-[1.02] contrast-[0.98]"
                   priority
                 />
@@ -197,12 +197,12 @@ export default function Home() {
               </h1>
 
               {/* Title */}
-              <p className="text-lg text-foreground/70 mb-4">
+              <p className="text-lg text-foreground/70 mb-2 md:mb-4">
                 Product Manager based in London
               </p>
 
               {/* Social Icons */}
-              <div className="flex gap-4 mb-8">
+              <div className="flex gap-4 mb-4 md:mb-8">
                 <a
                   href="https://www.linkedin.com/in/akshay-s-menon/"
                   target="_blank"
@@ -240,19 +240,19 @@ export default function Home() {
 
               {/* About Me */}
               <div>
-                <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
+                <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-2 md:mb-3">
                   About
                 </h2>
                 <p className="text-base leading-relaxed text-foreground/80">
                   I work at the intersection of <span className="bg-accent/20 px-1 rounded">product, growth, and data</span> at mission driven tech companies.
                 </p>
-                <p className="text-base leading-relaxed text-foreground/80 mt-4">
+                <p className="text-base leading-relaxed text-foreground/80 mt-2 md:mt-4">
                   I believe <span className="bg-accent/20 px-1 rounded">modern, accessible, low-cost financial infrastructure</span> is fundamental to advancing society as it underpins all human productivity, and have worked in this space for the past ten years.
                 </p>
               </div>
 
-              {/* Scroll indicator */}
-              <div className="mt-12 text-foreground/30 text-sm animate-bounce">
+              {/* Scroll indicator - hidden on mobile */}
+              <div className="hidden md:block mt-12 text-foreground/30 text-sm animate-bounce">
                 ↓ scroll
               </div>
             </div>
