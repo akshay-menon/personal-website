@@ -272,25 +272,38 @@ export default function Home() {
                 <div className="flex gap-4">
                   <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2025–present</span>
                   <span className="text-foreground/80">
-                    <a href="https://sling.money/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Sling Money</a> — Leading growth product. Sling&apos;s mission is to bring everyone in the world on to an instant, low cost, fairer financial system using stablecoin technology.
+                    <a href="https://sling.money/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">Sling Money</a> — Leading growth product. Sling&apos;s mission is to bring everyone in the world on to an instant, low cost, fairer financial system using stablecoin technology.
                   </span>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2018–2025</span>
-                  <span className="text-foreground/80">
-                    <a href="https://wise.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Wise</a> — Built products for businesses to get paid internationally. Started as a data analyst in the debit cards team, and moved to PM later.
-                  </span>
+                  <div className="text-foreground/80">
+                    <div>
+                      <a href="https://wise.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">Wise</a> — Built products for businesses to get paid internationally. Started as a data analyst in the debit cards team, and moved to PM later.
+                    </div>
+                    <div className="mt-1 text-xs text-foreground/50 space-y-0.5">
+                      <div>↳ <a href="https://medium.com/wise-engineering/how-wise-built-the-worlds-first-cloud-based-card-processing-fd427b7fb92b" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Building world&apos;s first cloud based card processing</a></div>
+                      <div>↳ <a href="https://medium.com/wise-engineering/measuring-transparency-9fc82ed9e619" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Measuring transparency as a value</a></div>
+                      <div>↳ <a href="https://youtu.be/LGylHDQ85vQ?si=6wwd0eRKiTdmgEc1" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">Get paid in multiple currencies</a></div>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2016–2018</span>
                   <span className="text-foreground/80">
-                    <a href="https://dimagi.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Dimagi</a> — Mobile data tools for frontline health workers in low resource settings.
+                    <a href="https://dimagi.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">Dimagi</a> — Mobile data tools for frontline health workers in low resource settings.
                   </span>
                 </div>
                 <div className="flex gap-4">
                   <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2015–2016</span>
                   <span className="text-foreground/80">
-                    <a href="https://www.pwc.co.uk/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">PwC</a> — Consultant, data science projects for financial services clients.
+                    <a href="https://www.pwc.co.uk/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">PwC</a> — Consultant, data science projects for financial services clients.
+                  </span>
+                </div>
+                <div className="flex gap-4">
+                  <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2011–2015</span>
+                  <span className="text-foreground/80">
+                    <a href="https://www.bits-pilani.ac.in/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">BITS Pilani</a> — Mechanical Engineering. Thesis on detecting malaria parasites from blood smear images using image processing—what got me hooked on data science and tech for social good.
                   </span>
                 </div>
               </div>
@@ -327,15 +340,15 @@ export default function Home() {
                 </h2>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <a href="https://melonfarms.xyz" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Melon Farms</a>
+                    <a href="https://melonfarms.xyz" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">Melon Farms</a>
                     <span className="text-foreground/60"> — recipe generator app built with vibe coding</span>
                   </div>
                   <div>
-                    <a href="https://substack.com/@amenon" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Perfect Days</a>
+                    <a href="https://substack.com/@amenon" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">Perfect Days</a>
                     <span className="text-foreground/60"> — fiction & travel writing on Substack</span>
                   </div>
                   <div>
-                    <a href="https://www.instagram.com/wabisabicomics/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors">Wabi Sabi Comics</a>
+                    <a href="https://www.instagram.com/wabisabicomics/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded">Wabi Sabi Comics</a>
                     <span className="text-foreground/60"> — illustrations on Instagram</span>
                   </div>
                 </div>
