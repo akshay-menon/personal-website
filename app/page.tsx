@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 const sections = [
   { id: "about", label: "About" },
   { id: "journey", label: "Journey" },
+  { id: "projects", label: "Projects" },
   { id: "life", label: "Life" },
   { id: "connect", label: "Connect" },
 ];
@@ -29,7 +30,8 @@ export default function Home() {
     const handleScroll = () => {
       const scrollPosition = container.scrollTop;
       const sectionHeight = window.innerHeight;
-      const currentIndex = Math.round(scrollPosition / sectionHeight);
+      // Add small buffer to prevent off-by-one errors at section boundaries
+      const currentIndex = Math.floor((scrollPosition + sectionHeight * 0.1) / sectionHeight);
       const clampedIndex = Math.max(0, Math.min(currentIndex, sections.length - 1));
       setActiveSection(sections[clampedIndex].id);
     };
@@ -69,6 +71,66 @@ export default function Home() {
 
   return (
     <div ref={scrollContainerRef} className="h-screen overflow-y-auto snap-y snap-mandatory">
+      {/* Mobile Theme Toggle - fixed top-right, hidden on desktop */}
+      <button
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        className="lg:hidden fixed top-4 right-4 z-30 flex items-center gap-2"
+        aria-label="Toggle theme"
+      >
+        {mounted ? (
+          <>
+            <div className="relative w-10 h-5 rounded-full bg-foreground/20 transition-colors">
+              <div
+                className={`absolute top-0.5 w-4 h-4 rounded-full bg-foreground/50 transition-all duration-300 ${
+                  theme === "dark" ? "left-0.5" : "left-[22px]"
+                }`}
+              />
+            </div>
+            <span className="text-foreground/40">
+              {theme === "dark" ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5" />
+                  <line x1="12" y1="1" x2="12" y2="3" />
+                  <line x1="12" y1="21" x2="12" y2="23" />
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                  <line x1="1" y1="12" x2="3" y2="12" />
+                  <line x1="21" y1="12" x2="23" y2="12" />
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+              )}
+            </span>
+          </>
+        ) : (
+          <div className="w-10 h-5" />
+        )}
+      </button>
+
       {/* Scroll Indicator - hidden on mobile */}
       <nav className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 z-20 flex-col items-start gap-1">
         {/* Theme Toggle Switch */}
@@ -176,7 +238,7 @@ export default function Home() {
         </div>
 
         {/* Section 1: Intro + About */}
-        <section id="about" className="h-screen snap-start flex items-start pt-8 md:pt-0 md:items-center px-8 md:px-6">
+        <section id="about" className="h-screen snap-start flex items-center px-8 md:px-6">
           <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               {/* Mobile Photo */}
@@ -192,13 +254,13 @@ export default function Home() {
               </div>
 
               {/* Name */}
-              <h1 className="text-4xl font-medium tracking-tight text-accent mb-2">
+              <h1 className="text-2xl md:text-4xl font-medium tracking-tight text-accent mb-1 md:mb-2">
                 Akshay Menon
               </h1>
 
               {/* Title */}
-              <p className="text-lg text-foreground/70 mb-2 md:mb-4">
-                Product Manager based in London
+              <p className="text-sm md:text-lg text-foreground/70 mb-1 md:mb-4">
+                Product | Growth | Data | Fintech
               </p>
 
               {/* Social Icons */}
@@ -240,13 +302,13 @@ export default function Home() {
 
               {/* About Me */}
               <div>
-                <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-2 md:mb-3">
+                <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-1 md:mb-3">
                   About
                 </h2>
-                <p className="text-base leading-relaxed text-foreground/80">
+                <p className="text-sm md:text-base leading-snug md:leading-relaxed text-foreground/80">
                   I work at the intersection of <span className="bg-accent/20 px-1 rounded">product, growth, and data</span> at mission driven tech companies.
                 </p>
-                <p className="text-base leading-relaxed text-foreground/80 mt-2 md:mt-4">
+                <p className="text-sm md:text-base leading-snug md:leading-relaxed text-foreground/80 mt-1.5 md:mt-4">
                   I believe <span className="bg-accent/20 px-1 rounded">modern, accessible, low-cost financial infrastructure</span> is fundamental to advancing society as it underpins all human productivity, and have worked in this space for the past ten years.
                 </p>
               </div>
@@ -262,13 +324,13 @@ export default function Home() {
         </section>
 
         {/* Section 2: Journey */}
-        <section id="journey" className="h-screen snap-start flex items-start pt-16 md:pt-0 md:items-center px-8 md:px-6">
+        <section id="journey" className="h-screen snap-start flex items-center px-8 md:px-6">
           <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
             <div className="flex-1 max-w-xl">
-              <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
+              <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-2 md:mb-3">
                 Journey
               </h2>
-              <div className="space-y-4 text-sm">
+              <div className="space-y-2 md:space-y-4 text-xs md:text-sm">
                 <div className="flex gap-4">
                   <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2025–present</span>
                   <span className="text-foreground/80">
@@ -303,7 +365,7 @@ export default function Home() {
                 <div className="flex gap-4">
                   <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2011–2015</span>
                   <span className="text-foreground/80">
-                    <a href="https://www.bits-pilani.ac.in/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">BITS Pilani</a> — Mechanical Engineering. Thesis on detecting malaria parasites from blood smear images using image processing—what got me hooked on data science and tech for social good.
+                    <a href="https://www.bits-pilani.ac.in/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">BITS Pilani</a> — Mechanical Engineering. Thesis on detecting malaria parasites from blood smear images using image processing.
                   </span>
                 </div>
               </div>
@@ -313,44 +375,28 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 3: Life + Side Projects */}
-        <section id="life" className="h-screen snap-start flex items-start pt-16 md:pt-0 md:items-center px-8 md:px-6">
+        {/* Section 3: Side Projects */}
+        <section id="projects" className="h-screen snap-start flex items-center px-8 md:px-6">
           <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
             <div className="flex-1 max-w-xl">
-              {/* Life */}
-              <div className="mb-8">
-                <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
-                  Life
-                </h2>
-                <p className="text-base leading-relaxed text-foreground/80">
-                  Into running, climbing, and surfing.
-                </p>
-                <p className="text-base leading-relaxed text-foreground/80 mt-4">
-                  Loves reading fiction, and have a goal to write a novel in the near future. You can see my reading list <a href="https://www.goodreads.com/user/show/8458998-akshay" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-accent transition-colors underline">here</a>.
-                </p>
-                <p className="text-base leading-relaxed text-foreground/80 mt-4">
-                  Originally from Kerala, India, lived in Tallinn for a while, now based in London.
-                </p>
-              </div>
-
-              {/* Side Projects */}
-              <div>
-                <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
-                  Side Projects
-                </h2>
-                <div className="space-y-3 text-sm">
-                  <div>
-                    <a href="https://melonfarms.xyz" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Melon Farms</a>
-                    <span className="text-foreground/60"> — recipe generator app built with vibe coding</span>
-                  </div>
-                  <div>
-                    <a href="https://substack.com/@amenon" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Perfect Days</a>
-                    <span className="text-foreground/60"> — fiction & travel writing on Substack</span>
-                  </div>
-                  <div>
-                    <a href="https://www.instagram.com/wabisabicomics/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Wabi Sabi Comics</a>
-                    <span className="text-foreground/60"> — illustrations on Instagram</span>
-                  </div>
+              <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-2 md:mb-3">
+                Side Quests
+              </h2>
+              <p className="text-sm md:text-base leading-snug md:leading-relaxed text-foreground/80 mb-3 md:mb-4">
+                A few projects I spend time on outside of my day job:
+              </p>
+              <div className="space-y-2.5 md:space-y-3">
+                <div>
+                  <a href="https://melonfarms.xyz" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Melon Farms</a>
+                  <span className="text-sm md:text-base text-foreground/60"> — recipe generator app built with Lovable, Claude, and Midjourney</span>
+                </div>
+                <div>
+                  <a href="https://substack.com/@amenon" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Perfect Days</a>
+                  <span className="text-sm md:text-base text-foreground/60"> — fiction and travel writing on Substack</span>
+                </div>
+                <div>
+                  <a href="https://www.instagram.com/wabisabicomics/" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Wabi Sabi Comics</a>
+                  <span className="text-sm md:text-base text-foreground/60"> — a comic strip I used to draw ages ago</span>
                 </div>
               </div>
             </div>
@@ -359,17 +405,39 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Section 4: Connect */}
-        <section id="connect" className="h-screen snap-start flex items-start pt-16 md:pt-0 md:items-center px-8 md:px-6">
+        {/* Section 4: Life */}
+        <section id="life" className="h-screen snap-start flex items-center px-8 md:px-6">
           <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
             <div className="flex-1 max-w-xl">
-              <h2 className="text-base font-bold text-accent uppercase tracking-wide mb-3">
+              <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-1 md:mb-3">
+                Life
+              </h2>
+              <p className="text-sm md:text-base leading-snug md:leading-relaxed text-foreground/80">
+                <span className="bg-accent/20 px-1 rounded">Running</span> is my main sport these days. I enjoy climbing and the occasional surf.
+              </p>
+              <p className="text-sm md:text-base leading-snug md:leading-relaxed text-foreground/80 mt-1.5 md:mt-4">
+                I try to read a couple of books a month, mostly <span className="bg-accent/20 px-1 rounded">literary fiction</span>, and have a goal to write a novel in the near future.
+              </p>
+              <p className="text-sm md:text-base leading-snug md:leading-relaxed text-foreground/80 mt-1.5 md:mt-4">
+                Home is somewhere between <span className="bg-accent/20 px-1 rounded">London/Tallinn/Kerala</span>.
+              </p>
+            </div>
+            {/* Spacer for photo on desktop */}
+            <div className="hidden md:block w-[300px] flex-shrink-0" />
+          </div>
+        </section>
+
+        {/* Section 4: Connect */}
+        <section id="connect" className="h-screen snap-start flex items-center px-8 md:px-6">
+          <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+            <div className="flex-1 max-w-xl">
+              <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-1 md:mb-3">
                 Connect
               </h2>
-              <p className="text-base leading-relaxed text-foreground/80 mb-6">
-                Say hello. I&apos;m always happy to chat about product, growth, and fintech.
+              <p className="text-sm md:text-base leading-snug md:leading-relaxed text-foreground/80 mb-3 md:mb-6">
+                I&apos;m always happy to chat about product, growth, and fintech.
               </p>
-              <div className="flex gap-4 mb-8">
+              <div className="flex gap-4 mb-4 md:mb-8">
                 <a
                   href="https://www.linkedin.com/in/akshay-s-menon/"
                   target="_blank"
@@ -431,6 +499,11 @@ export default function Home() {
                   </button>
                 </form>
               )}
+
+              {/* Footer */}
+              <p className="mt-8 text-xs text-foreground/30">
+                Made with <a href="https://claude.ai/code" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground/50 transition-colors">Claude Code</a>
+              </p>
             </div>
             {/* Spacer for photo on desktop */}
             <div className="hidden md:block w-[300px] flex-shrink-0" />

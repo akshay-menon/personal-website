@@ -12,7 +12,7 @@
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
-  --font-sans: var(--font-space-grotesk);
+  --font-sans: var(--font-jetbrains-mono);
   --font-mono: var(--font-vt323);
 }
 
@@ -26,24 +26,14 @@ html.dark {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+  font-family: "JetBrains Mono", monospace;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "VT323", monospace;
-  letter-spacing: 0.05em;
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.02em;
 }
 
-/* Retro pixel cursor - orange to match accent */
-@media (pointer: fine) {
-  * {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23a85a42' d='M2 2h2v2H2zM4 4h2v2H4zM6 6h2v2H6zM8 8h2v2H8zM10 10h2v2h-2zM4 6h2v2H4zM4 8h2v2H4zM4 10h2v2H4zM4 12h2v2H4zM6 14h2v2H6zM8 14h2v2H8zM10 14h2v2h-2zM12 12h2v2h-2zM14 10h2v2h-2z'/%3E%3Cpath fill='%23d4775c' d='M0 0h2v22H0zM2 0h2v2H2zM2 4h2v12H2zM4 2h2v2H4zM4 12h2v4H4zM6 4h2v2H6zM6 8h2v6H6zM8 6h2v2H8zM8 10h2v4H8zM10 8h2v2h-2zM10 12h2v2h-2zM12 10h2v2h-2z'/%3E%3C/svg%3E") 0 0, auto;
-  }
-
-  a, button {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23a85a42' d='M10 0h2v2h-2zM8 2h2v2H8zM12 2h2v2h-2zM8 4h2v2H8zM12 4h2v2h-2zM8 6h2v2H8zM12 6h2v2h-2zM4 8h2v2H4zM8 8h2v2H8zM12 8h2v2h-2zM16 8h2v2h-2zM2 10h2v2H2zM6 10h2v2H6zM14 10h2v2h-2zM18 10h2v2h-2zM2 12h2v2H2zM18 12h2v2h-2zM2 14h2v2H2zM18 14h2v2h-2zM4 16h2v2H4zM16 16h2v2h-2zM6 18h2v2H6zM8 18h2v2H8zM10 18h2v2h-2zM12 18h2v2h-2zM14 18h2v2h-2z'/%3E%3Cpath fill='%23d4775c' d='M10 2h2v6h-2zM4 10h2v6H4zM6 10h2v8H6zM8 10h2v8H8zM10 10h2v8h-2zM12 10h2v8h-2zM14 12h2v6h-2zM16 10h2v6h-2z'/%3E%3C/svg%3E") 6 0, pointer;
-  }
-}
 
 /* Film grain overlay */
 body::before {

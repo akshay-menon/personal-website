@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, VT323 } from "next/font/google";
+import { JetBrains_Mono, VT323 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${spaceGrotesk.variable} ${vt323.variable} antialiased`}
+        className={`${jetbrainsMono.variable} ${vt323.variable} antialiased`}
       >
         <ThemeProvider>
           <main>{children}</main>
