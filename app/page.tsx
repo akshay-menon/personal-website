@@ -332,13 +332,13 @@ export default function Home() {
               </h2>
               <div className="space-y-2 md:space-y-4 text-xs md:text-sm">
                 <div className="flex gap-4">
-                  <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2025–present</span>
+                  <span className="text-foreground/50 w-24 flex-shrink-0 text-xs">2025–present</span>
                   <span className="text-foreground/80">
                     <a href="https://sling.money/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Sling Money</a> — Leading growth product. Sling&apos;s mission is to bring everyone in the world on to an instant, low cost, fairer financial system using stablecoin technology.
                   </span>
                 </div>
                 <div className="flex gap-4">
-                  <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2018–2025</span>
+                  <span className="text-foreground/50 w-24 flex-shrink-0 text-xs">2018–2025</span>
                   <div className="text-foreground/80">
                     <div>
                       <a href="https://wise.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Wise</a> — Built products for businesses to get paid internationally. Started as a data analyst in the debit cards team, and moved to PM later.
@@ -351,19 +351,19 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2016–2018</span>
+                  <span className="text-foreground/50 w-24 flex-shrink-0 text-xs">2016–2018</span>
                   <span className="text-foreground/80">
                     <a href="https://dimagi.com/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">Dimagi</a> — Mobile data tools for frontline health workers in low resource settings.
                   </span>
                 </div>
                 <div className="flex gap-4">
-                  <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2015–2016</span>
+                  <span className="text-foreground/50 w-24 flex-shrink-0 text-xs">2015–2016</span>
                   <span className="text-foreground/80">
                     <a href="https://www.pwc.co.uk/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">PwC</a> — Consultant, data science projects for financial services clients.
                   </span>
                 </div>
                 <div className="flex gap-4">
-                  <span className="text-foreground/50 w-24 flex-shrink-0 font-mono text-xs">2011–2015</span>
+                  <span className="text-foreground/50 w-24 flex-shrink-0 text-xs">2011–2015</span>
                   <span className="text-foreground/80">
                     <a href="https://www.bits-pilani.ac.in/" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-accent transition-colors bg-accent/20 px-1 rounded underline">BITS Pilani</a> — Mechanical Engineering. Thesis on detecting malaria parasites from blood smear images using image processing.
                   </span>
