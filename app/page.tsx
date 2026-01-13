@@ -239,10 +239,10 @@ export default function Home() {
 
         {/* Section 1: Intro + About */}
         <section id="about" className="h-screen snap-start flex items-center px-8 md:px-6">
-          <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+          <div className="max-w-4xl mx-auto w-full flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               {/* Mobile Photo */}
-              <div className="md:hidden mb-4">
+              <div className="lg:hidden mb-4">
                 <Image
                   src="/Akshay.jpg"
                   alt="Akshay Menon"
@@ -319,13 +319,13 @@ export default function Home() {
               </div>
             </div>
             {/* Spacer for photo on desktop */}
-            <div className="hidden md:block w-[300px] flex-shrink-0" />
+            <div className="hidden lg:block w-[300px] flex-shrink-0" />
           </div>
         </section>
 
         {/* Section 2: Journey */}
         <section id="journey" className="h-screen snap-start flex items-center px-8 md:px-6">
-          <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+          <div className="max-w-4xl mx-auto w-full flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-2 md:mb-3">
                 Journey
@@ -371,13 +371,13 @@ export default function Home() {
               </div>
             </div>
             {/* Spacer for photo on desktop */}
-            <div className="hidden md:block w-[300px] flex-shrink-0" />
+            <div className="hidden lg:block w-[300px] flex-shrink-0" />
           </div>
         </section>
 
         {/* Section 3: Side Projects */}
         <section id="projects" className="h-screen snap-start flex items-center px-8 md:px-6">
-          <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+          <div className="max-w-4xl mx-auto w-full flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-2 md:mb-3">
                 Side Quests
@@ -401,13 +401,13 @@ export default function Home() {
               </div>
             </div>
             {/* Spacer for photo on desktop */}
-            <div className="hidden md:block w-[300px] flex-shrink-0" />
+            <div className="hidden lg:block w-[300px] flex-shrink-0" />
           </div>
         </section>
 
         {/* Section 4: Life */}
         <section id="life" className="h-screen snap-start flex items-center px-8 md:px-6">
-          <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+          <div className="max-w-4xl mx-auto w-full flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-1 md:mb-3">
                 Life
@@ -423,13 +423,13 @@ export default function Home() {
               </p>
             </div>
             {/* Spacer for photo on desktop */}
-            <div className="hidden md:block w-[300px] flex-shrink-0" />
+            <div className="hidden lg:block w-[300px] flex-shrink-0" />
           </div>
         </section>
 
         {/* Section 4: Connect */}
         <section id="connect" className="h-screen snap-start flex items-center px-8 md:px-6">
-          <div className="max-w-4xl mx-auto w-full flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+          <div className="max-w-4xl mx-auto w-full flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="flex-1 max-w-xl">
               <h2 className="text-sm md:text-base font-bold text-accent uppercase tracking-wide mb-1 md:mb-3">
                 Connect
@@ -506,7 +506,7 @@ export default function Home() {
               </p>
             </div>
             {/* Spacer for photo on desktop */}
-            <div className="hidden md:block w-[300px] flex-shrink-0" />
+            <div className="hidden lg:block w-[300px] flex-shrink-0" />
           </div>
         </section>
       </div>
